@@ -1774,6 +1774,23 @@ section {
     color: #9ca3af;
 }
 
+.footer-developer-credit {
+    font-size: 0.7rem;
+    opacity: 0.6;
+    margin-top: 0.5rem;
+}
+
+.footer-developer-credit a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.footer-developer-credit a:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
 /* ===== RESPONSIVE DESIGN ===== */
 
 /* Tablets and below */
