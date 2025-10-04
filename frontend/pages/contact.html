@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Deluxe Tour and Travel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <div id="header"></div>
+
+    <!-- Hero Section -->
+    <section class="contact-hero-modern">
+        <div class="hero-gradient"></div>
+        <div class="hero-shapes">
+            <div class="shape-1"></div>
+            <div class="shape-2"></div>
+            <div class="shape-3"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content-modern">
+                <span class="badge-modern">
+                    <i class="fas fa-headset"></i> Get In Touch
+                </span>
+                <h1 class="hero-title-modern">
+                    We'd Love To <span class="gradient-text">Hear From You</span>
+                </h1>
+                <p class="hero-subtitle-modern">
+                    Have questions about your next adventure? Our team is here to help you plan the perfect journey.
+                </p>
+                
+                <!-- Quick Contact Info -->
+                <div class="quick-contact-hero">
+                    <a href="tel:+254700000000" class="quick-contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+254 700 000 000</span>
+                    </a>
+                    <a href="mailto:info@deluxetour.co.ke" class="quick-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@deluxetour.co.ke</span>
+                    </a>
+                    <a href="https://wa.me/254700000000" target="_blank" class="quick-contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <span>WhatsApp Us</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section class="contact-section-modern">
+        <div class="container">
+            <div class="contact-grid-modern">
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper-modern">
+                    <div class="section-header-modern">
+                        <h2>Send Us A Message</h2>
+                        <p>Fill out the form below and we'll get back to you within 24 hours</p>
+                    </div>
+
+                    <form id="contactForm" class="contact-form-modern">
+                        <div class="form-row-modern">
+                            <div class="form-group-modern">
+                                <label for="name">
+                                    <i class="fas fa-user"></i> Full Name
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="name" 
+                                    name="name" 
+                                    placeholder="John Doe" 
+                                    required
+                                >
+                            </div>
+                            <div class="form-group-modern">
+                                <label for="email">
+                                    <i class="fas fa-envelope"></i> Email Address
+                                </label>
+                                <input 
+                                    type="email" 
+                                    id="email" 
+                                    name="email" 
+                                    placeholder="john@example.com" 
+                                    required
+                                >
+                            </div>
+                        </div>
+
+                        <div class="form-row-modern">
+                            <div class="form-group-modern">
+                                <label for="phone">
+                                    <i class="fas fa-phone"></i> Phone Number
+                                </label>
+                                <input 
+                                    type="tel" 
+                                    id="phone" 
+                                    name="phone" 
+                                    placeholder="+252 61 234 5678"
+                                >
+                            </div>
+                            <div class="form-group-modern">
+                                <label for="subject">
+                                    <i class="fas fa-tag"></i> Subject
+                                </label>
+                                <select id="subject" name="subject" required>
+                                    <option value="">Select a subject</option>
+                                    <option value="general">General Inquiry</option>
+                                    <option value="booking">Booking Question</option>
+                                    <option value="package">Package Information</option>
+                                    <option value="feedback">Feedback</option>
+                                    <option value="complaint">Complaint</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group-modern">
+                            <label for="message">
+                                <i class="fas fa-comment-dots"></i> Your Message
+                            </label>
+                            <textarea 
+                                id="message" 
+                                name="message" 
+                                rows="6" 
+                                placeholder="Tell us more about your inquiry..." 
+                                required
+                            ></textarea>
+                        </div>
+
+                        <div class="form-alert-modern" id="formAlert"></div>
+
+                        <button type="submit" class="btn-submit-modern">
+                            <span class="btn-text">Send Message</span>
+                            <span class="btn-loader" style="display: none;">
+                                <i class="fas fa-spinner fa-spin"></i> Sending...
+                            </span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="contact-info-wrapper-modern">
+                    <!-- Office Info Card -->
+                    <div class="info-card-contact-modern">
+                        <div class="info-icon-contact-modern">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3>Our Office</h3>
+                        <p>Deluxe Tour and Travel</p>
+                        <p>Moi Avenue, City Center</p>
+                        <p>Nairobi, Kenya</p>
+                    </div>
+
+                    <!-- Contact Details Card -->
+                    <div class="info-card-contact-modern">
+                        <div class="info-icon-contact-modern">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h3>Phone & Email</h3>
+                        <p>
+                            <a href="tel:+254700000000">+254 700 000 000</a>
+                        </p>
+                        <p>
+                            <a href="tel:+254710000000">+254 710 000 000</a>
+                        </p>
+                        <p>
+                            <a href="mailto:info@deluxetour.co.ke">info@deluxetour.co.ke</a>
+                        </p>
+                    </div>
+
+                    <!-- Working Hours Card -->
+                    <div class="info-card-contact-modern">
+                        <div class="info-icon-contact-modern">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>Working Hours</h3>
+                        <p><strong>Saturday - Thursday:</strong></p>
+                        <p>9:00 AM - 6:00 PM</p>
+                        <p><strong>Friday:</strong></p>
+                        <p>Closed</p>
+                    </div>
+
+                    <!-- Social Media Card -->
+                    <div class="info-card-contact-modern social-card-modern">
+                        <div class="info-icon-contact-modern">
+                            <i class="fas fa-share-alt"></i>
+                        </div>
+                        <h3>Follow Us</h3>
+                        <p>Stay connected on social media</p>
+                        <div class="social-links-contact-modern">
+                            <a href="https://facebook.com/deluxetour" target="_blank" class="social-btn-modern facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://twitter.com/deluxetour" target="_blank" class="social-btn-modern twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://instagram.com/deluxetour" target="_blank" class="social-btn-modern instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://linkedin.com/company/deluxetour" target="_blank" class="social-btn-modern linkedin">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://wa.me/252615000000" target="_blank" class="social-btn-modern whatsapp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section-modern">
+        <div class="container">
+            <div class="section-header-modern text-center">
+                <h2>Find Us On The Map</h2>
+                <p>Visit our office in Nairobi for personalized travel consultation</p>
+            </div>
+            <div class="map-wrapper-modern">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63820.49201089215!2d36.79188937910156!3d-1.286389399999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d22de7f7f5%3A0xf8b5e8e7e5c3e3e3!2sMoi%20Avenue%2C%20Nairobi%2C%20Kenya!5e0!3m2!1sen!2s!4v1696424000000!5m2!1sen!2s" 
+                    width="100%" 
+                    height="450" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-modern">
+        <div class="container">
+            <div class="cta-content-modern">
+                <h2>Ready To Start Your Adventure?</h2>
+                <p>Browse our exclusive tour packages and book your dream vacation today</p>
+                <div class="cta-buttons-modern">
+                    <a href="tours.html" class="btn-primary-modern">
+                        <i class="fas fa-compass"></i> Explore Tours
+                    </a>
+                    <a href="about.html" class="btn-secondary-modern">
+                        <i class="fas fa-info-circle"></i> About Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <!-- Cookie Consent -->
+    <div id="cookie-consent"></div>
+
+    <script src="../js/components.js"></script>
+    <script src="../js/contact.js"></script>
+    <script src="../js/cookie-consent.js"></script>
+</body>
+</html>
