@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setup Required - Deluxe Tour & Travel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            max-width: 800px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #667eea;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .status {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .success {
+            background: #d4edda;
+            border-left-color: #28a745;
+        }
+        .step {
+            background: #f8f9fa;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        .step h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        .step ol {
+            margin-left: 20px;
+        }
+        .step li {
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+        .command {
+            background: #282c34;
+            color: #61dafb;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+        .btn {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px 10px 10px 0;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #5568d3;
+        }
+        .btn-success {
+            background: #28a745;
+        }
+        .btn-success:hover {
+            background: #218838;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .feature {
+            background: #e7f3ff;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .feature i {
+            font-size: 2rem;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        .check {
+            color: #28a745;
+            font-weight: bold;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fas fa-plane"></i> Deluxe Tour & Travel</h1>
+        
+        <div class="status success">
+            <strong><i class="fas fa-check-circle"></i> Project Setup Complete!</strong><br>
+            All files have been created successfully. Follow the steps below to run the application.
+        </div>
+
+        <div class="step">
+            <h3><i class="fas fa-download"></i> Step 1: Install Node.js</h3>
+            <ol>
+                <li>Visit <a href="https://nodejs.org/" target="_blank">https://nodejs.org/</a></li>
+                <li>Download the <strong>LTS (Long Term Support)</strong> version</li>
+                <li>Run the installer with default settings</li>
+                <li>Restart your computer (or at least PowerShell)</li>
+                <li>Verify installation by opening PowerShell and typing:</li>
+            </ol>
+            <div class="command">node --version</div>
+            <div class="command">npm --version</div>
+        </div>
+
+        <div class="step">
+            <h3><i class="fas fa-cog"></i> Step 2: Install Dependencies</h3>
+            <p>Open PowerShell and navigate to the backend folder:</p>
+            <div class="command">cd "c:\Users\Afronic\Desktop\Deluxe tour and travel website\backend"</div>
+            <div class="command">npm install</div>
+            <p>This will install all required packages (Express, MongoDB, JWT, etc.)</p>
+        </div>
+
+        <div class="step">
+            <h3><i class="fas fa-server"></i> Step 3: Install Frontend Server</h3>
+            <div class="command">npm install -g http-server</div>
+            <p>This installs a simple web server to serve the frontend files.</p>
+        </div>
+
+        <div class="step">
+            <h3><i class="fas fa-rocket"></i> Step 4: Start the Application</h3>
+            <p><strong>Option A: Automated (Recommended)</strong></p>
+            <ol>
+                <li>Navigate to the project folder</li>
+                <li>Right-click on <strong>setup-and-test.ps1</strong></li>
+                <li>Select "Run with PowerShell"</li>
+            </ol>
+            
+            <p style="margin-top: 15px;"><strong>Option B: Manual Start</strong></p>
+            <p>Open TWO PowerShell windows:</p>
+            
+            <p><strong>Window 1 (Backend):</strong></p>
+            <div class="command">cd "c:\Users\Afronic\Desktop\Deluxe tour and travel website\backend"</div>
+            <div class="command">npm run dev</div>
+            
+            <p><strong>Window 2 (Frontend):</strong></p>
+            <div class="command">cd "c:\Users\Afronic\Desktop\Deluxe tour and travel website\frontend"</div>
+            <div class="command">npx http-server -p 3000 -o</div>
+        </div>
+
+        <div class="step">
+            <h3><i class="fas fa-globe"></i> Step 5: Access the Website</h3>
+            <p>Once both servers are running:</p>
+            <ul>
+                <li><strong>Frontend:</strong> <a href="http://localhost:3000" target="_blank">http://localhost:3000</a></li>
+                <li><strong>Backend API:</strong> <a href="http://localhost:5000" target="_blank">http://localhost:5000</a></li>
+            </ul>
+        </div>
+
+        <h2 style="margin-top: 30px; color: #667eea;">✨ What's Already Built:</h2>
+        
+        <div class="features">
+            <div class="feature">
+                <i class="fas fa-home"></i>
+                <p><strong>Homepage</strong><br>Complete design</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-mobile-alt"></i>
+                <p><strong>Responsive</strong><br>Mobile-friendly</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-bars"></i>
+                <p><strong>Navigation</strong><br>Header & Footer</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-server"></i>
+                <p><strong>Backend</strong><br>Express server</p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="https://nodejs.org/" target="_blank" class="btn">
+                <i class="fas fa-download"></i> Download Node.js
+            </a>
+            <a href="index.html" class="btn btn-success" onclick="alert('Please install Node.js and run the servers first!')">
+                <i class="fas fa-play"></i> View Website
+            </a>
+        </div>
+
+        <div style="margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 8px; text-align: center;">
+            <p><strong>Developer:</strong> Khalid Abdikarim</p>
+            <p><strong>Student ID:</strong> BSCCS/2023/67547</p>
+            <p><strong>Project:</strong> Deluxe Tour and Travel Booking System</p>
+        </div>
+    </div>
+
+    <script>
+        // Check if Node.js is installed by trying to detect if we can run on localhost
+        setTimeout(() => {
+            fetch('http://localhost:5000')
+                .then(() => {
+                    document.querySelector('.status').innerHTML = 
+                        '<strong><i class="fas fa-check-circle"></i> Servers are running!</strong><br>Click "View Website" to see your application.';
+                })
+                .catch(() => {
+                    // Servers not running yet
+                });
+        }, 1000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,540 @@
+# Deluxe Tour & Travel - Complete Requirements Documentation
+
+## Project Information
+- **Project Name**: Deluxe Tour & Travel Booking System
+- **Student Name**: Khalid Abdikarim
+- **Registration Number**: BSCCS/2023/67547
+- **Date Created**: October 4, 2025
+- **Node.js Version**: v22.20.0
+- **npm Version**: 10.9.2
+
+---
+
+## System Requirements
+
+### Software Requirements
+1. **Node.js** - v22.20.0 or higher
+   - Download: https://nodejs.org/
+   
+2. **MongoDB** - v6.0 or higher (Optional - can use MongoDB Atlas)
+   - Download: https://www.mongodb.com/try/download/community
+   - Alternative: MongoDB Atlas (Cloud) - https://www.mongodb.com/cloud/atlas
+
+3. **Code Editor** (Recommended)
+   - Visual Studio Code: https://code.visualstudio.com/
+
+4. **Web Browser** (Any modern browser)
+   - Chrome, Firefox, Edge, Safari
+
+---
+
+## Backend Dependencies (Node.js/Express)
+
+### Production Dependencies
+Install all with: `cd backend && npm install`
+
+```json
+{
+  "express": "^4.18.2",
+  "mongoose": "^7.5.0",
+  "bcryptjs": "^2.4.3",
+  "jsonwebtoken": "^9.0.2",
+  "dotenv": "^16.3.1",
+  "cors": "^2.8.5",
+  "express-validator": "^7.0.1",
+  "morgan": "^1.10.0",
+  "helmet": "^7.0.0",
+  "express-rate-limit": "^6.10.0",
+  "nodemailer": "^6.9.4",
+  "multer": "^1.4.5-lts.1",
+  "cloudinary": "^1.40.0",
+  "stripe": "^13.2.0",
+  "crypto": "^1.0.1"
+}
+```
+
+### Development Dependencies
+```json
+{
+  "nodemon": "^3.0.1"
+}
+```
+
+### Dependency Descriptions
+
+1. **express** (^4.18.2)
+   - Web framework for Node.js
+   - Handles routing, middleware, and HTTP requests
+
+2. **mongoose** (^7.5.0)
+   - MongoDB ODM (Object Data Modeling)
+   - Schema definitions and database operations
+
+3. **bcryptjs** (^2.4.3)
+   - Password hashing and encryption
+   - Secure user authentication
+
+4. **jsonwebtoken** (^9.0.2)
+   - JWT token generation and verification
+   - Stateless authentication system
+
+5. **dotenv** (^16.3.1)
+   - Environment variable management
+   - Secure configuration storage
+
+6. **cors** (^2.8.5)
+   - Cross-Origin Resource Sharing
+   - Allows frontend to communicate with backend
+
+7. **express-validator** (^7.0.1)
+   - Input validation middleware
+   - Data sanitization and validation
+
+8. **morgan** (^1.10.0)
+   - HTTP request logger
+   - Debugging and monitoring
+
+9. **helmet** (^7.0.0)
+   - Security middleware
+   - Sets secure HTTP headers
+
+10. **express-rate-limit** (^6.10.0)
+    - Rate limiting middleware
+    - Prevents brute force attacks
+
+11. **nodemailer** (^6.9.4)
+    - Email sending functionality
+    - Booking confirmations and notifications
+
+12. **multer** (^1.4.5-lts.1)
+    - File upload handling
+    - Image uploads for tours
+
+13. **cloudinary** (^1.40.0)
+    - Image hosting and optimization
+    - CDN for tour images
+
+14. **stripe** (^13.2.0)
+    - Payment processing
+    - Online payment gateway integration
+
+15. **crypto** (^1.0.1)
+    - Password reset tokens
+    - Secure token generation
+
+16. **nodemon** (^3.0.1) [Dev]
+    - Auto-restart server on file changes
+    - Development productivity tool
+
+---
+
+## Frontend Dependencies
+
+### Production Dependencies
+Install all with: `cd frontend && npm install`
+
+```json
+{
+  "http-server": "^14.1.1"
+}
+```
+
+### CDN Resources (No installation required)
+```html
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+```
+
+---
+
+## Quick Start Installation Guide
+
+### Step 1: Clone or Download Project
+```bash
+# If using Git
+git clone <repository-url>
+cd "Deluxe tour and travel website"
+
+# Or download and extract ZIP file
+```
+
+### Step 2: Install Node.js
+1. Visit https://nodejs.org/
+2. Download LTS version (v22.20.0 or higher)
+3. Run installer and follow prompts
+4. Verify installation:
+```bash
+node --version
+npm --version
+```
+
+### Step 3: Install Backend Dependencies
+```bash
+cd backend
+npm install
+```
+
+This single command installs all 15 backend dependencies automatically!
+
+### Step 4: Install Frontend Dependencies
+```bash
+cd ../frontend
+npm install
+```
+
+### Step 5: Configure Environment Variables
+Create a `.env` file in the `backend` folder:
+
+```env
+# Server Configuration
+PORT=5000
+NODE_ENV=development
+
+# MongoDB Configuration
+MONGODB_URI=mongodb://localhost:27017/deluxe_tour_travel
+# For MongoDB Atlas: mongodb+srv://username:password@cluster.mongodb.net/deluxe_tour_travel
+
+# JWT Configuration
+JWT_SECRET=your_super_secret_jwt_key_change_this_in_production
+JWT_EXPIRE=7d
+
+# Email Configuration (Optional - for nodemailer)
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=587
+EMAIL_USER=your_email@gmail.com
+EMAIL_PASSWORD=your_app_password
+
+# Cloudinary Configuration (Optional - for image uploads)
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
+
+# Stripe Configuration (Optional - for payments)
+STRIPE_SECRET_KEY=your_stripe_secret_key
+STRIPE_PUBLISHABLE_KEY=your_stripe_publishable_key
+
+# Mpesa Configuration (Optional - for local payments)
+MPESA_CONSUMER_KEY=your_mpesa_consumer_key
+MPESA_CONSUMER_SECRET=your_mpesa_consumer_secret
+MPESA_SHORTCODE=your_shortcode
+MPESA_PASSKEY=your_passkey
+```
+
+### Step 6: Install MongoDB (Choose One)
+
+#### Option A: Local MongoDB
+1. Download from https://www.mongodb.com/try/download/community
+2. Install with default settings
+3. MongoDB will run on `mongodb://localhost:27017`
+
+#### Option B: MongoDB Atlas (Cloud - Recommended for beginners)
+1. Visit https://www.mongodb.com/cloud/atlas
+2. Create free account
+3. Create a cluster (free tier available)
+4. Get connection string
+5. Update MONGODB_URI in `.env` file
+
+### Step 7: Run the Application
+
+#### Terminal 1 - Backend Server
+```bash
+cd backend
+npm run dev
+```
+Backend runs on: http://localhost:5000
+
+#### Terminal 2 - Frontend Server
+```bash
+cd frontend
+npx http-server -p 3000 -o
+```
+Frontend runs on: http://localhost:3000
+
+---
+
+## Project Structure
+
+```
+Deluxe tour and travel website/
+│
+├── backend/
+│   ├── src/
+│   │   ├── config/
+│   │   │   └── database.js          # MongoDB connection
+│   │   ├── controllers/
+│   │   │   ├── authController.js    # Authentication logic
+│   │   │   ├── tourController.js    # Tour management
+│   │   │   ├── bookingController.js # Booking operations
+│   │   │   ├── reviewController.js  # Reviews & ratings
+│   │   │   └── contactController.js # Contact inquiries
+│   │   ├── models/
+│   │   │   ├── User.js              # User schema
+│   │   │   ├── Tour.js              # Tour package schema
+│   │   │   ├── Booking.js           # Booking schema
+│   │   │   ├── Review.js            # Review schema
+│   │   │   └── Contact.js           # Contact schema
+│   │   ├── routes/
+│   │   │   ├── authRoutes.js        # Auth endpoints
+│   │   │   ├── tourRoutes.js        # Tour endpoints
+│   │   │   ├── bookingRoutes.js     # Booking endpoints
+│   │   │   ├── reviewRoutes.js      # Review endpoints
+│   │   │   └── contactRoutes.js     # Contact endpoints
+│   │   ├── middleware/
+│   │   │   ├── auth.js              # JWT authentication
+│   │   │   └── validator.js         # Input validation
+│   │   └── utils/                   # Utility functions
+│   ├── .env                         # Environment variables
+│   ├── server.js                    # Main server file
+│   ├── package.json                 # Dependencies list
+│   └── README.md
+│
+├── frontend/
+│   ├── css/
+│   │   └── style.css                # Main stylesheet
+│   ├── js/
+│   │   ├── main.js                  # Main JavaScript
+│   │   └── components.js            # Reusable components
+│   ├── pages/
+│   │   └── login.html               # Login page
+│   ├── includes/
+│   │   ├── header.html              # Reusable header
+│   │   └── footer.html              # Reusable footer
+│   ├── images/                      # Image assets
+│   ├── admin/                       # Admin panel (future)
+│   ├── index.html                   # Homepage
+│   └── package.json
+│
+├── REQUIREMENTS.txt                 # This file
+├── README.md                        # Project overview
+└── Documentation files...
+```
+
+---
+
+## API Endpoints Reference
+
+### Authentication APIs (`/api/auth`)
+- POST `/register` - Register new user
+- POST `/login` - User login
+- GET `/me` - Get current user profile
+- PUT `/updateprofile` - Update user profile
+- PUT `/updatepassword` - Change password
+- POST `/forgotpassword` - Request password reset
+- PUT `/resetpassword/:token` - Reset password
+
+### Tour APIs (`/api/tours`)
+- GET `/` - Get all tours (with filters)
+- GET `/:id` - Get single tour
+- POST `/` - Create tour (Admin)
+- PUT `/:id` - Update tour (Admin)
+- DELETE `/:id` - Delete tour (Admin)
+- GET `/featured` - Get featured tours
+- GET `/category/:category` - Get tours by category
+- GET `/stats` - Get tour statistics (Admin)
+
+### Booking APIs (`/api/bookings`)
+- POST `/check-availability` - Check tour availability
+- POST `/` - Create new booking
+- GET `/my-bookings` - Get user's bookings
+- GET `/:id` - Get single booking
+- PUT `/:id/cancel` - Cancel booking
+- POST `/:id/payment` - Process payment
+- GET `/` - Get all bookings (Admin)
+- PUT `/:id/status` - Update booking status (Admin)
+- GET `/stats/analytics` - Get booking statistics (Admin)
+
+### Review APIs (`/api/reviews`)
+- POST `/` - Create review
+- GET `/` - Get all reviews
+- GET `/:id` - Get single review
+- PUT `/:id` - Update review
+- DELETE `/:id` - Delete review
+- POST `/:id/helpful` - Mark review helpful
+- PUT `/:id/status` - Update review status (Admin)
+- POST `/:id/reply` - Reply to review (Admin)
+
+### Contact APIs (`/api/contact`)
+- POST `/` - Submit contact form
+- GET `/` - Get all inquiries (Admin)
+- GET `/:id` - Get single inquiry (Admin)
+- PUT `/:id/status` - Update inquiry status (Admin)
+- POST `/:id/response` - Add response (Admin)
+- DELETE `/:id` - Delete inquiry (Admin)
+
+---
+
+## Database Collections
+
+### Users Collection
+- Authentication credentials
+- Profile information
+- Role-based access (customer, admin, hotel_manager)
+
+### Tours Collection
+- Tour packages
+- Pricing and discounts
+- Availability tracking
+- Images and descriptions
+- Categories and ratings
+
+### Bookings Collection
+- User bookings
+- Payment information
+- Booking status tracking
+- Special requirements
+
+### Reviews Collection
+- User reviews and ratings
+- Admin responses
+- Helpfulness tracking
+
+### Contacts Collection
+- Customer inquiries
+- Support tickets
+- Response tracking
+
+---
+
+## Color Scheme & Design
+
+### Primary Colors
+- **Primary Blue**: #2563eb
+- **Secondary Blue**: #1e40af
+- **Accent Orange**: #f59e0b
+- **Header/Footer**: #1e293b (Dark slate)
+- **Destination Cards**: Gradient from #667eea to #764ba2
+
+### Design Features
+- Responsive mobile-first design
+- Modern gradient effects on destination cards
+- Consistent header and footer styling
+- Smooth animations and transitions
+- Professional color palette
+
+---
+
+## Security Features
+
+1. **Password Security**
+   - Bcrypt hashing (10 salt rounds)
+   - Minimum 8 characters required
+
+2. **JWT Authentication**
+   - 7-day token expiration
+   - HTTP-only cookies (recommended)
+
+3. **Rate Limiting**
+   - 100 requests per 15 minutes per IP
+
+4. **Input Validation**
+   - Express-validator middleware
+   - Sanitization of all inputs
+
+5. **Security Headers**
+   - Helmet.js for HTTP headers
+   - CORS configuration
+
+---
+
+## Development Scripts
+
+### Backend Scripts
+```bash
+npm run dev      # Start development server with nodemon
+npm start        # Start production server
+```
+
+### Frontend Scripts
+```bash
+npx http-server -p 3000 -o    # Start frontend server and open browser
+```
+
+---
+
+## Troubleshooting
+
+### Common Issues
+
+1. **"Cannot find module 'express'"**
+   - Solution: Run `npm install` in backend folder
+
+2. **"MongoDB connection error"**
+   - Solution: Ensure MongoDB is running or check Atlas connection string
+
+3. **"Port 5000 already in use"**
+   - Solution: Change PORT in .env file or stop other applications
+
+4. **"CORS error"**
+   - Solution: Check CORS configuration in server.js
+
+5. **"npm command not found"**
+   - Solution: Install Node.js and restart terminal
+
+---
+
+## Future Enhancements (Planned)
+
+- [ ] Payment gateway integration (Stripe, Mpesa)
+- [ ] Image upload functionality
+- [ ] Admin dashboard with analytics
+- [ ] Email notifications
+- [ ] Google Maps integration
+- [ ] Advanced search and filters
+- [ ] Tour comparison feature
+- [ ] Wishlist functionality
+- [ ] Multi-language support
+- [ ] Social media authentication
+
+---
+
+## Contact & Support
+
+**Developer**: Khalid Abdikarim  
+**Student ID**: BSCCS/2023/67547  
+**Institution**: [Your University Name]  
+**Project**: Final Year Project - Tour & Travel Booking System
+
+---
+
+## License
+
+This project is developed for educational purposes as part of academic requirements.
+
+---
+
+## One-Line Installation Command
+
+For quick setup on a new machine (after cloning repository):
+
+```bash
+cd backend && npm install && cd ../frontend && npm install && cd ..
+```
+
+This installs all dependencies for both backend and frontend in one command!
+
+---
+
+## Backup & Migration
+
+### To backup your project:
+1. Copy entire project folder
+2. Export MongoDB database:
+```bash
+mongodump --db deluxe_tour_travel --out ./backup
+```
+
+### To restore on new machine:
+1. Copy project folder
+2. Install Node.js
+3. Run one-line installation command above
+4. Restore database:
+```bash
+mongorestore --db deluxe_tour_travel ./backup/deluxe_tour_travel
+```
+5. Configure .env file
+6. Run servers
+
+---
+
+**Last Updated**: October 4, 2025  
+**Version**: 1.0.0

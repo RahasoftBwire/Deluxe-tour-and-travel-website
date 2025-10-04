@@ -1,0 +1,72 @@
+# ⚠️ Node.js Installation In Progress
+
+## Current Status:
+The `winget install OpenJS.NodeJS.LTS` command is running in the background.
+This may take 5-10 minutes depending on your internet speed.
+
+## What to do:
+
+### Option 1: Wait for Automatic Installation
+The winget command should complete automatically. 
+After it's done, close and reopen PowerShell, then run:
+```powershell
+node --version
+npm --version
+```
+
+### Option 2: Manual Installation (Faster)
+If the automatic installation is taking too long:
+
+1. Open your web browser
+2. Go to: https://nodejs.org/
+3. Click "Download Node.js (LTS)"
+4. Run the installer (.msi file)
+5. Follow the installation wizard (use default settings)
+6. Click "Finish" when done
+7. **Close and reopen PowerShell**
+8. Verify installation:
+   ```powershell
+   node --version
+   npm --version
+   ```
+
+## After Node.js is Installed:
+
+Run this command to install all dependencies:
+```powershell
+cd "c:\Users\Afronic\Desktop\Deluxe tour and travel website\backend"
+npm install
+```
+
+Then start the servers:
+```powershell
+# Terminal 1 - Backend
+cd "c:\Users\Afronic\Desktop\Deluxe tour and travel website\backend"
+npm run dev
+
+# Terminal 2 - Frontend
+cd "c:\Users\Afronic\Desktop\Deluxe tour and travel website\frontend"
+npx http-server -p 3000 -o
+```
+
+## What's Been Created While Waiting:
+
+✅ All Database Models:
+   - User.js (with password hashing)
+   - Tour.js (with pricing and availability)
+   - Booking.js (with payment tracking)
+   - Review.js (verified reviews)
+   - Contact.js (inquiry management)
+
+✅ Ready to continue with:
+   - Authentication APIs
+   - Tour Management APIs
+   - Booking System
+   - Payment Integration
+
+## Need Help?
+
+If installation fails, download manually from:
+https://nodejs.org/dist/v20.9.0/node-v20.9.0-x64.msi
+
+Or use the START-HERE.html guide for visual instructions.

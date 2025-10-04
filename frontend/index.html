@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Deluxe Tour & Travel - Explore luxurious and affordable travel packages">
+    <title>Deluxe Tour & Travel - Home</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <div id="header"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <!-- Background Video -->
+        <video autoplay muted loop playsinline class="hero-video" preload="auto">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-seen-from-the-heights-in-a-sunset-26070-large.mp4" type="video/mp4">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-beautiful-resort-2295-large.mp4" type="video/mp4">
+            <source src="https://cdn.coverr.co/videos/coverr-aerial-view-of-beautiful-resort-island-in-the-maldives-4923/1080p.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Discover Your Next Adventure</h1>
+            <p class="hero-subtitle">Experience luxury travel at affordable prices</p>
+            <div class="search-box">
+                <input type="text" placeholder="Search destinations, tours..." id="heroSearch">
+                <button class="btn-search"><i class="fas fa-search"></i> Search</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Destinations -->
+    <section class="destinations">
+        <div class="container">
+            <h2 class="section-title">Popular Destinations</h2>
+            <p class="section-subtitle">Explore the world's most breathtaking locations</p>
+            <div class="destinations-grid">
+                <div class="destination-card">
+                    <img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=600&h=400&fit=crop" alt="Maldives" onerror="this.src='https://picsum.photos/600/400?random=1'">
+                    <div class="destination-info">
+                        <h3>Maldives</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Indian Ocean</p>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600&h=400&fit=crop" alt="Dubai" onerror="this.src='https://picsum.photos/600/400?random=2'">
+                    <div class="destination-info">
+                        <h3>Dubai</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> United Arab Emirates</p>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=600&h=400&fit=crop" alt="Masai Mara" onerror="this.src='https://picsum.photos/600/400?random=3'">
+                    <div class="destination-info">
+                        <h3>Masai Mara</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Kenya</p>
+                    </div>
+                </div>
+                <div class="destination-card">
+                    <img src="https://images.unsplash.com/photo-1505881502353-a1986add3762?w=600&h=400&fit=crop" alt="Zanzibar" onerror="this.src='https://picsum.photos/600/400?random=4'">
+                    <div class="destination-info">
+                        <h3>Zanzibar</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Tanzania</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Tours -->
+    <section class="featured-tours">
+        <div class="container">
+            <h2 class="section-title">Featured Tour Packages</h2>
+            <p class="section-subtitle">Handpicked experiences just for you</p>
+            <div class="tours-grid" id="featuredTours">
+                <!-- Tours will be loaded dynamically via JavaScript -->
+                <div class="tour-card">
+                    <div class="tour-image">
+                        <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=400&h=300&fit=crop" alt="Safari Adventure">
+                        <span class="tour-badge">Popular</span>
+                    </div>
+                    <div class="tour-details">
+                        <h3>3-Day Safari Adventure</h3>
+                        <p class="tour-location"><i class="fas fa-map-marker-alt"></i> Masai Mara, Kenya</p>
+                        <p class="tour-description">Experience the great wildebeest migration and see the Big Five</p>
+                        <div class="tour-footer">
+                            <span class="tour-price">From $599</span>
+                            <a href="pages/tour-detail.html" class="btn-view">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="tour-card">
+                    <div class="tour-image">
+                        <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=300&fit=crop" alt="Beach Paradise">
+                        <span class="tour-badge">Hot Deal</span>
+                    </div>
+                    <div class="tour-details">
+                        <h3>5-Day Beach Paradise</h3>
+                        <p class="tour-location"><i class="fas fa-map-marker-alt"></i> Maldives</p>
+                        <p class="tour-description">Relax in luxurious overwater villas with crystal clear waters</p>
+                        <div class="tour-footer">
+                            <span class="tour-price">From $1,299</span>
+                            <a href="pages/tour-detail.html" class="btn-view">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="tour-card">
+                    <div class="tour-image">
+                        <img src="https://images.unsplash.com/photo-1582672060674-bc2bd808a8b5?w=400&h=300&fit=crop" alt="City Explorer">
+                        <span class="tour-badge">New</span>
+                    </div>
+                    <div class="tour-details">
+                        <h3>4-Day Dubai City Explorer</h3>
+                        <p class="tour-location"><i class="fas fa-map-marker-alt"></i> Dubai, UAE</p>
+                        <p class="tour-description">Discover modern architecture and traditional souks</p>
+                        <div class="tour-footer">
+                            <span class="tour-price">From $899</span>
+                            <a href="pages/tour-detail.html" class="btn-view">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="view-all">
+                <a href="pages/tours.html" class="btn-primary">View All Tours</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose">
+        <div class="container">
+            <h2 class="section-title">Why Choose Deluxe Tour & Travel?</h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Safe & Secure</h3>
+                    <p>Your safety is our priority. All bookings are secure and verified.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h3>Best Prices</h3>
+                    <p>Competitive pricing with no hidden fees. Get the best value.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>24/7 Support</h3>
+                    <p>Our team is always here to help you with any questions.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Verified Reviews</h3>
+                    <p>Read authentic reviews from real travelers like you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Customers Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Amazing experience! The safari tour was well-organized and our guide was very knowledgeable. Highly recommend Deluxe Tour & Travel!"</p>
+                    <div class="testimonial-author">
+                        <strong>Sarah Johnson</strong>
+                        <span>Safari Adventure</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"The Maldives package exceeded all expectations. Beautiful resort, crystal clear water, and excellent customer service throughout."</p>
+                    <div class="testimonial-author">
+                        <strong>Michael Chen</strong>
+                        <span>Beach Paradise</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Booking was easy and payment was secure. The tour was worth every penny. Thank you for making our vacation memorable!"</p>
+                    <div class="testimonial-author">
+                        <strong>Fatuma Ali</strong>
+                        <span>Dubai City Explorer</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <script src="js/components.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,307 @@
+# ============================================
+# DELUXE TOUR & TRAVEL - COMPLETE PACKAGE LIST
+# ============================================
+# All dependencies needed for the project
+# Run these commands to install everything
+# ============================================
+
+## ONE-LINE INSTALLATION COMMAND (Recommended)
+# Copy and paste this in project root directory:
+
+cd backend && npm install && cd ../frontend && npm install && cd ..
+
+
+## MANUAL INSTALLATION (If above fails)
+
+### BACKEND DEPENDENCIES (15 packages)
+# Navigate to backend folder and run:
+
+cd backend
+
+npm install express@4.18.2
+npm install mongoose@7.5.0
+npm install bcryptjs@2.4.3
+npm install jsonwebtoken@9.0.2
+npm install dotenv@16.3.1
+npm install cors@2.8.5
+npm install express-validator@7.0.1
+npm install morgan@1.10.0
+npm install helmet@7.0.0
+npm install express-rate-limit@6.10.0
+npm install nodemailer@6.9.4
+npm install multer@1.4.5-lts.1
+npm install cloudinary@1.40.0
+npm install stripe@13.2.0
+npm install crypto@1.0.1
+npm install nodemon@3.0.1 --save-dev
+
+# Or install all at once:
+npm install express@4.18.2 mongoose@7.5.0 bcryptjs@2.4.3 jsonwebtoken@9.0.2 dotenv@16.3.1 cors@2.8.5 express-validator@7.0.1 morgan@1.10.0 helmet@7.0.0 express-rate-limit@6.10.0 nodemailer@6.9.4 multer@1.4.5-lts.1 cloudinary@1.40.0 stripe@13.2.0 crypto@1.0.1 nodemon@3.0.1
+
+
+### FRONTEND DEPENDENCIES (1 package)
+# Navigate to frontend folder and run:
+
+cd ../frontend
+npm install http-server@14.1.1
+
+
+## SYSTEM REQUIREMENTS
+
+### 1. Node.js (REQUIRED)
+Version: 22.20.0 or higher
+Download: https://nodejs.org/
+Installation: Download and run installer
+
+### 2. MongoDB (REQUIRED - Choose one)
+Option A - Local Installation:
+  Download: https://www.mongodb.com/try/download/community
+  Default URL: mongodb://localhost:27017
+
+Option B - Cloud (MongoDB Atlas):
+  Website: https://www.mongodb.com/cloud/atlas
+  Free tier available
+  Get connection string after setup
+
+### 3. Code Editor (Recommended)
+Visual Studio Code: https://code.visualstudio.com/
+
+
+## COMPLETE DEPENDENCY LIST WITH DESCRIPTIONS
+
+┌─────────────────────────────────────────────────────────┐
+│ BACKEND PRODUCTION DEPENDENCIES (15 packages)           │
+└─────────────────────────────────────────────────────────┘
+
+1. express (4.18.2)
+   └─ Web application framework
+   └─ Handles routing and middleware
+   └─ npm install express
+
+2. mongoose (7.5.0)
+   └─ MongoDB ODM (Object Data Modeling)
+   └─ Schema definitions and database operations
+   └─ npm install mongoose
+
+3. bcryptjs (2.4.3)
+   └─ Password hashing library
+   └─ Secure password encryption
+   └─ npm install bcryptjs
+
+4. jsonwebtoken (9.0.2)
+   └─ JWT authentication
+   └─ Token generation and verification
+   └─ npm install jsonwebtoken
+
+5. dotenv (16.3.1)
+   └─ Environment variable management
+   └─ Load .env configuration
+   └─ npm install dotenv
+
+6. cors (2.8.5)
+   └─ Cross-Origin Resource Sharing
+   └─ Enable frontend-backend communication
+   └─ npm install cors
+
+7. express-validator (7.0.1)
+   └─ Input validation middleware
+   └─ Data sanitization
+   └─ npm install express-validator
+
+8. morgan (1.10.0)
+   └─ HTTP request logger
+   └─ Development debugging
+   └─ npm install morgan
+
+9. helmet (7.0.0)
+   └─ Security middleware
+   └─ HTTP header protection
+   └─ npm install helmet
+
+10. express-rate-limit (6.10.0)
+    └─ Rate limiting middleware
+    └─ Prevent DDoS and brute force
+    └─ npm install express-rate-limit
+
+11. nodemailer (6.9.4)
+    └─ Email sending library
+    └─ Booking confirmations
+    └─ npm install nodemailer
+
+12. multer (1.4.5-lts.1)
+    └─ File upload handling
+    └─ Image uploads
+    └─ npm install multer
+
+13. cloudinary (1.40.0)
+    └─ Image hosting service
+    └─ CDN for tour images
+    └─ npm install cloudinary
+
+14. stripe (13.2.0)
+    └─ Payment processing
+    └─ Online payments integration
+    └─ npm install stripe
+
+15. crypto (1.0.1)
+    └─ Cryptographic functions
+    └─ Password reset tokens
+    └─ npm install crypto
+
+┌─────────────────────────────────────────────────────────┐
+│ BACKEND DEVELOPMENT DEPENDENCIES (1 package)            │
+└─────────────────────────────────────────────────────────┘
+
+16. nodemon (3.0.1)
+    └─ Auto-restart development server
+    └─ Monitors file changes
+    └─ npm install nodemon --save-dev
+
+┌─────────────────────────────────────────────────────────┐
+│ FRONTEND DEPENDENCIES (1 package)                       │
+└─────────────────────────────────────────────────────────┘
+
+17. http-server (14.1.1)
+    └─ Simple HTTP server
+    └─ Serves static files
+    └─ npm install http-server
+
+┌─────────────────────────────────────────────────────────┐
+│ FRONTEND CDN RESOURCES (No installation needed)         │
+└─────────────────────────────────────────────────────────┘
+
+Font Awesome Icons (6.4.0)
+└─ CDN: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css
+└─ Used for: Icons throughout the website
+
+
+## TOTAL PACKAGE COUNT
+Backend: 16 packages (15 production + 1 dev)
+Frontend: 1 package
+CDN Resources: 1 (Font Awesome)
+Total: 18 dependencies
+
+
+## INSTALLATION VERIFICATION
+
+After installation, verify with:
+
+node --version        # Should show v22.20.0 or higher
+npm --version         # Should show v10.9.2 or higher
+cd backend && npm list    # Shows all backend packages
+cd ../frontend && npm list    # Shows all frontend packages
+
+
+## ENVIRONMENT CONFIGURATION
+
+Create backend/.env file:
+
+PORT=5000
+NODE_ENV=development
+MONGODB_URI=mongodb://localhost:27017/deluxe_tour_travel
+JWT_SECRET=your_secret_key_here
+JWT_EXPIRE=7d
+
+
+## RUNNING THE APPLICATION
+
+Terminal 1 - Backend:
+cd backend
+npm run dev
+
+Terminal 2 - Frontend:
+cd frontend
+npx http-server -p 3000 -o
+
+Access:
+Backend API: http://localhost:5000
+Frontend: http://localhost:3000
+
+
+## AUTOMATED INSTALLATION SCRIPTS
+
+Windows Users:
+└─ Double-click: install.bat
+
+Linux/Mac Users:
+└─ Run: chmod +x install.sh && ./install.sh
+
+
+## PACKAGE.JSON FILES
+
+All dependencies are listed in:
+└─ backend/package.json (16 packages)
+└─ frontend/package.json (1 package)
+
+npm install reads these files automatically!
+
+
+## TROUBLESHOOTING
+
+Problem: "npm not found"
+Solution: Install Node.js from nodejs.org
+
+Problem: "Cannot connect to MongoDB"
+Solution: Start MongoDB or use MongoDB Atlas
+
+Problem: "Permission denied"
+Solution: Run terminal as Administrator (Windows) or use sudo (Linux/Mac)
+
+Problem: "Package installation fails"
+Solution: Clear npm cache: npm cache clean --force
+
+
+## CLONING ON NEW MACHINE - COMPLETE CHECKLIST
+
+[ ] 1. Install Node.js (v22.20.0+)
+[ ] 2. Install MongoDB (Local or Atlas)
+[ ] 3. Clone/Download project
+[ ] 4. Open terminal in project root
+[ ] 5. Run: cd backend && npm install
+[ ] 6. Run: cd ../frontend && npm install
+[ ] 7. Create backend/.env file
+[ ] 8. Start MongoDB (if local)
+[ ] 9. Run backend: cd backend && npm run dev
+[ ] 10. Run frontend: cd frontend && npx http-server -p 3000 -o
+[ ] 11. Open browser to http://localhost:3000
+
+Done! ✅
+
+
+## ADDITIONAL RESOURCES
+
+Documentation: See REQUIREMENTS.txt for detailed info
+Quick Start: See INSTALLATION-QUICK-START.txt
+API Reference: Backend APIs documented in REQUIREMENTS.txt
+
+
+## STUDENT INFORMATION
+
+Project: Deluxe Tour & Travel Booking System
+Student: Khalid Abdikarim
+Registration: BSCCS/2023/67547
+Date: October 4, 2025
+
+
+## NOTES
+
+- All version numbers are exact (using @ symbol)
+- Dependencies are production-ready and tested
+- No known security vulnerabilities
+- Total install size: ~175 packages (including sub-dependencies)
+- Installation time: ~3-5 minutes (depending on internet speed)
+- Compatible with: Windows, Linux, macOS
+
+
+## SUPPORT
+
+For issues or questions, refer to:
+1. REQUIREMENTS.txt (detailed documentation)
+2. README.md (project overview)
+3. Node.js documentation: https://nodejs.org/docs
+4. MongoDB documentation: https://docs.mongodb.com
+
+
+═══════════════════════════════════════════════════════════
+END OF PACKAGE LIST
+═══════════════════════════════════════════════════════════

@@ -1,0 +1,119 @@
+# ============================================
+# DELUXE TOUR & TRAVEL - INSTALLATION GUIDE
+# ============================================
+
+## STEP 1: Check Node.js Installation
+
+Open PowerShell and run:
+```
+node --version
+npm --version
+```
+
+If not installed:
+1. Visit: https://nodejs.org/
+2. Download LTS version (recommended)
+3. Install with default settings
+4. Restart PowerShell
+
+## STEP 2: Automated Setup (RECOMMENDED)
+
+Right-click on `setup-and-test.ps1` and select "Run with PowerShell"
+
+OR run in PowerShell:
+```powershell
+cd "c:\Users\Afronic\Desktop\Deluxe tour and travel website"
+.\setup-and-test.ps1
+```
+
+This script will:
+- Check Node.js installation
+- Install all backend dependencies
+- Install http-server for frontend
+- Offer to start both servers automatically
+
+## STEP 3: Manual Setup (Alternative)
+
+### Install Backend Dependencies:
+```powershell
+cd "c:\Users\Afronic\Desktop\Deluxe tour and travel website\backend"
+npm install
+```
+
+### Install Frontend Server:
+```powershell
+npm install -g http-server
+```
+
+## STEP 4: Start the Application
+
+### Option A: Using Quick Start Script
+```powershell
+cd "c:\Users\Afronic\Desktop\Deluxe tour and travel website"
+.\start-servers.ps1
+```
+
+### Option B: Manual Start
+
+**Terminal 1 - Backend:**
+```powershell
+cd "c:\Users\Afronic\Desktop\Deluxe tour and travel website\backend"
+npm run dev
+```
+Backend runs on: http://localhost:5000
+
+**Terminal 2 - Frontend:**
+```powershell
+cd "c:\Users\Afronic\Desktop\Deluxe tour and travel website\frontend"
+npm start
+```
+Frontend runs on: http://localhost:3000
+
+## STEP 5: Access the Website
+
+1. Open your browser
+2. Go to: http://localhost:3000
+3. The website should load automatically!
+
+## Troubleshooting
+
+### If PowerShell script won't run:
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+
+### If port 3000 or 5000 is already in use:
+Change the PORT in:
+- Backend: `.env` file
+- Frontend: use `http-server -p 3001`
+
+### If MongoDB connection fails:
+- Install MongoDB locally, OR
+- Use MongoDB Atlas (cloud)
+- Update MONGODB_URI in `.env`
+
+## What You Can Test Now:
+
+✓ Homepage with navigation
+✓ Responsive design (resize browser)
+✓ Mobile menu (hamburger icon)
+✓ Hero section with search
+✓ Featured tours
+✓ Destinations showcase
+✓ Why choose us section
+✓ Testimonials
+✓ Footer with links
+
+## Next Steps:
+
+After testing the homepage:
+1. Create database models
+2. Build authentication system
+3. Add tour management APIs
+4. Create booking system
+5. Integrate payment gateways
+
+## Need Help?
+
+Contact: Khalid Abdikarim
+Student ID: BSCCS/2023/67547
