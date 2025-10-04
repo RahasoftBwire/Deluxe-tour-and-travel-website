@@ -38,29 +38,41 @@ document.addEventListener('DOMContentLoaded', function() {
         btnLoader.style.display = 'inline-flex';
 
         try {
-            // Send to backend API
-            const response = await fetch('http://localhost:5000/api/contact', {
+            // Use FormSubmit.co to send email directly to developer
+            // FormSubmit is a free service that sends form data to your email
+            const formSubmitUrl = 'https://formsubmit.co/bsccs202367547@mylife.mku.ac.ke';
+            
+            // Create FormData for submission
+            const submitData = new FormData();
+            submitData.append('name', formData.name);
+            submitData.append('email', formData.email);
+            submitData.append('phone', formData.phone);
+            submitData.append('subject', formData.subject);
+            submitData.append('message', formData.message);
+            submitData.append('_subject', `Deluxe Tour & Travel - ${formData.subject}`);
+            submitData.append('_template', 'table');
+            submitData.append('_captcha', 'false'); // Disable captcha for testing
+            
+            const response = await fetch(formSubmitUrl, {
                 method: 'POST',
+                body: submitData,
                 headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(formData)
+                    'Accept': 'application/json'
+                }
             });
 
-            const data = await response.json();
-
-            if (response.ok && data.success) {
-                showAlert(data.message || 'Thank you! Your message has been sent successfully. We will get back to you within 24 hours.', 'success');
+            if (response.ok) {
+                showAlert('Thank you! Your message has been sent successfully to bsccs202367547@mylife.mku.ac.ke. We will get back to you within 24 hours.', 'success');
                 contactForm.reset();
                 
                 // Scroll to alert
                 formAlert.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             } else {
-                throw new Error(data.message || 'Failed to send message');
+                throw new Error('Failed to send message');
             }
         } catch (error) {
             console.error('Error:', error);
-            showAlert('Sorry, there was an error sending your message. Please try again or contact us directly via phone or email.', 'error');
+            showAlert('Sorry, there was an error sending your message. Please try again or contact us directly at bsccs202367547@mylife.mku.ac.ke', 'error');
         } finally {
             // Re-enable submit button
             submitBtn.disabled = false;

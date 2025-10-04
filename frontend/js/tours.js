@@ -8,6 +8,7 @@ let filteredTours = [];
 document.addEventListener('DOMContentLoaded', () => {
     initializeTours();
     setupEventListeners();
+    checkURLSearchParam();
 });
 
 function initializeTours() {
@@ -15,6 +16,22 @@ function initializeTours() {
     allTours = Array.from(document.querySelectorAll('.tour-card'));
     filteredTours = [...allTours];
     updateResultsCount();
+}
+
+// Check if there's a search query in the URL
+function checkURLSearchParam() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchQuery = urlParams.get('search');
+    
+    if (searchQuery) {
+        // Set the search input value
+        const searchInput = document.getElementById('searchTours');
+        if (searchInput) {
+            searchInput.value = searchQuery;
+            // Trigger the filter
+            applyFilters();
+        }
+    }
 }
 
 function setupEventListeners() {

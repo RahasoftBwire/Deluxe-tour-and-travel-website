@@ -122,15 +122,31 @@ function logout() {
 
 // ===== HERO SEARCH =====
 const heroSearch = document.getElementById('heroSearch');
+const searchButton = document.querySelector('.btn-search');
+
+// Function to perform search
+function performSearch() {
+    const searchQuery = heroSearch.value.trim();
+    if (searchQuery) {
+        window.location.href = `pages/tours.html?search=${encodeURIComponent(searchQuery)}`;
+    } else {
+        // If empty, just go to tours page
+        window.location.href = 'pages/tours.html';
+    }
+}
+
+// Search on Enter key
 if (heroSearch) {
     heroSearch.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') {
-            const searchQuery = heroSearch.value.trim();
-            if (searchQuery) {
-                window.location.href = `pages/tours.html?search=${encodeURIComponent(searchQuery)}`;
-            }
+            performSearch();
         }
     });
+}
+
+// Search on button click
+if (searchButton) {
+    searchButton.addEventListener('click', performSearch);
 }
 
 // ===== LOAD FEATURED TOURS =====
