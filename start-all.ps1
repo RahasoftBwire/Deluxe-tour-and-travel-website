@@ -24,7 +24,7 @@ Start-Sleep -Seconds 3
 # Start Frontend Server in new window
 Write-Host "🌐 Starting Frontend Server..." -ForegroundColor Green
 $frontendPath = Join-Path $projectRoot "frontend"
-Start-Process powershell -ArgumentList "-NoExit", "-Command", "cd '$frontendPath'; Write-Host '🎨 Frontend Server Starting...' -ForegroundColor Green; python -m http.server 3000"
+Start-Process powershell -ArgumentList "-NoExit", "-Command", "cd '$frontendPath'; Write-Host '🎨 Frontend Server Starting...' -ForegroundColor Green; python -m http.server 3000 --bind 127.0.0.1"
 
 # Wait for frontend to initialize
 Write-Host "⏳ Waiting for frontend to start..." -ForegroundColor Yellow
