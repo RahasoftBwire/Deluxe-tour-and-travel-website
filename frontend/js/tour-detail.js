@@ -343,7 +343,35 @@ function loadRelatedTours(currentTourId) {
 
 // Book now function
 function bookNow() {
-    alert('Booking functionality will be implemented soon!\n\nFor now, please contact us at:\nPhone: +254 700 000 000\nEmail: info@deluxetour.co.ke');
+    // Get the tour ID from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const tourId = urlParams.get('tour');
+    
+    if (!tourId || !toursData[tourId]) {
+        alert('Tour not found. Please select a valid tour.');
+        return;
+    }
+    
+    // Get tour data
+    const tour = toursData[tourId];
+    
+    // Create tour data object to pass to booking page
+    const tourData = {
+        id: tourId,
+        title: tour.title,
+        category: tour.category,
+        destination: tour.destination,
+        duration: tour.duration,
+        price: tour.price,
+        image: tour.heroImage,
+        rating: tour.rating
+    };
+    
+    // Store in localStorage as backup
+    localStorage.setItem('selectedTour', JSON.stringify(tourData));
+    
+    // Redirect to booking page with tour data
+    window.location.href = `booking.html?tour=${encodeURIComponent(JSON.stringify(tourData))}`;
 }
 
 // Open image modal (simple version)

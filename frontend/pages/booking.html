@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Tour - Deluxe Tours</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .booking-container {
+            max-width: 1200px;
+            margin: 80px auto 60px;
+            padding: 0 20px;
+        }
+
+        .booking-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .booking-header h1 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .booking-header p {
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        .booking-layout {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 30px;
+        }
+
+        .booking-form-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .booking-summary {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+
+        .form-step {
+            display: none;
+        }
+
+        .form-step.active {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .step-indicator {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .step-indicator::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #e0e0e0;
+            z-index: 0;
+        }
+
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #e0e0e0;
+            color: #999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            margin-bottom: 10px;
+            transition: all 0.3s;
+        }
+
+        .step.active .step-number {
+            background: #e97730;
+            color: white;
+        }
+
+        .step.completed .step-number {
+            background: #4caf50;
+            color: white;
+        }
+
+        .step-label {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .form-section-title {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .form-group label .required {
+            color: #e97730;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #e97730;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-row-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+        }
+
+        .traveler-counter {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .counter-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid #e97730;
+            background: white;
+            color: #e97730;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .counter-btn:hover {
+            background: #e97730;
+            color: white;
+        }
+
+        .counter-value {
+            font-size: 1.3rem;
+            font-weight: 600;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        .payment-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .payment-option {
+            padding: 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .payment-option:hover {
+            border-color: #e97730;
+        }
+
+        .payment-option input[type="radio"] {
+            display: none;
+        }
+
+        .payment-option input[type="radio"]:checked + .payment-content {
+            color: #e97730;
+        }
+
+        .payment-option input[type="radio"]:checked ~ .payment-option {
+            border-color: #e97730;
+            background: #fff8f3;
+        }
+
+        .payment-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .payment-label {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            gap: 15px;
+        }
+
+        .btn-secondary {
+            padding: 15px 30px;
+            border: 2px solid #e97730;
+            background: white;
+            color: #e97730;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: #f9f9f9;
+        }
+
+        .btn-primary {
+            padding: 15px 40px;
+            border: none;
+            background: linear-gradient(135deg, #e97730 0%, #d66620 100%);
+            color: white;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(233, 119, 48, 0.3);
+        }
+
+        /* Booking Summary */
+        .tour-info {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .tour-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .tour-title {
+            font-size: 1.3rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .tour-detail {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .price-breakdown {
+            margin-bottom: 25px;
+        }
+
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            color: #666;
+        }
+
+        .price-item.total {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #333;
+            padding-top: 15px;
+            border-top: 2px solid #f0f0f0;
+        }
+
+        .price-amount {
+            font-weight: 600;
+            color: #e97730;
+        }
+
+        .security-info {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            color: #666;
+            text-align: center;
+        }
+
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .success-icon {
+            font-size: 5rem;
+            color: #4caf50;
+            margin-bottom: 20px;
+        }
+
+        .success-message h2 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .booking-reference {
+            background: #fff8f3;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 2px dashed #e97730;
+        }
+
+        .booking-reference strong {
+            color: #e97730;
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .booking-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .booking-summary {
+                position: static;
+                order: -1;
+            }
+
+            .form-row, .form-row-3, .payment-options {
+                grid-template-columns: 1fr;
+            }
+
+            .step-indicator {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <div class="booking-container">
+        <div class="booking-header">
+            <h1>Complete Your Booking</h1>
+            <p>Just a few more details and you're all set!</p>
+        </div>
+
+        <div class="booking-layout">
+            <!-- Booking Form -->
+            <div class="booking-form-section">
+                <!-- Step Indicator -->
+                <div class="step-indicator">
+                    <div class="step active" data-step="1">
+                        <div class="step-number">1</div>
+                        <span class="step-label">Tour Details</span>
+                    </div>
+                    <div class="step" data-step="2">
+                        <div class="step-number">2</div>
+                        <span class="step-label">Your Info</span>
+                    </div>
+                    <div class="step" data-step="3">
+                        <div class="step-number">3</div>
+                        <span class="step-label">Payment</span>
+                    </div>
+                    <div class="step" data-step="4">
+                        <div class="step-number">4</div>
+                        <span class="step-label">Confirm</span>
+                    </div>
+                </div>
+
+                <form id="bookingForm">
+                    <!-- Step 1: Tour Details -->
+                    <div class="form-step active" data-step="1">
+                        <h3 class="form-section-title">
+                            <i class="fas fa-calendar-alt"></i>
+                            Tour Details
+                        </h3>
+
+                        <div class="form-group">
+                            <label>Select Date <span class="required">*</span></label>
+                            <input type="date" class="form-control" name="bookingDate" required min="">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Number of Travelers</label>
+                            <div style="margin-bottom: 15px;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                                    <span>Adults (18+)</span>
+                                    <div class="traveler-counter">
+                                        <button type="button" class="counter-btn" onclick="updateCounter('adults', -1)">-</button>
+                                        <span class="counter-value" id="adultsCount">1</span>
+                                        <button type="button" class="counter-btn" onclick="updateCounter('adults', 1)">+</button>
+                                    </div>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                                    <span>Children (2-17)</span>
+                                    <div class="traveler-counter">
+                                        <button type="button" class="counter-btn" onclick="updateCounter('children', -1)">-</button>
+                                        <span class="counter-value" id="childrenCount">0</span>
+                                        <button type="button" class="counter-btn" onclick="updateCounter('children', 1)">+</button>
+                                    </div>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <span>Infants (0-1)</span>
+                                    <div class="traveler-counter">
+                                        <button type="button" class="counter-btn" onclick="updateCounter('infants', -1)">-</button>
+                                        <span class="counter-value" id="infantsCount">0</span>
+                                        <button type="button" class="counter-btn" onclick="updateCounter('infants', 1)">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Special Requests (Optional)</label>
+                            <textarea class="form-control" name="specialRequests" rows="4" placeholder="Any dietary requirements, accessibility needs, or special occasions?"></textarea>
+                        </div>
+
+                        <div class="form-buttons">
+                            <button type="button" class="btn-primary" onclick="nextStep()">Next Step</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Contact Information -->
+                    <div class="form-step" data-step="2">
+                        <h3 class="form-section-title">
+                            <i class="fas fa-user"></i>
+                            Contact Information
+                        </h3>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Full Name <span class="required">*</span></label>
+                                <input type="text" class="form-control" name="contactName" required placeholder="John Doe">
+                            </div>
+                            <div class="form-group">
+                                <label>Email <span class="required">*</span></label>
+                                <input type="email" class="form-control" name="contactEmail" required placeholder="john@example.com">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Phone Number <span class="required">*</span></label>
+                                <input type="tel" class="form-control" name="contactPhone" required placeholder="+254 700 000 000">
+                            </div>
+                            <div class="form-group">
+                                <label>Nationality</label>
+                                <input type="text" class="form-control" name="nationality" placeholder="Kenyan">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Address</label>
+                            <input type="text" class="form-control" name="contactAddress" placeholder="Full address">
+                        </div>
+
+                        <h4 style="margin: 25px 0 15px;">Emergency Contact</h4>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control" name="emergencyName" placeholder="Emergency contact name">
+                            </div>
+                            <div class="form-group">
+                                <label>Phone</label>
+                                <input type="tel" class="form-control" name="emergencyPhone" placeholder="Emergency contact phone">
+                            </div>
+                        </div>
+
+                        <div class="form-buttons">
+                            <button type="button" class="btn-secondary" onclick="prevStep()">Back</button>
+                            <button type="button" class="btn-primary" onclick="nextStep()">Next Step</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Payment -->
+                    <div class="form-step" data-step="3">
+                        <h3 class="form-section-title">
+                            <i class="fas fa-credit-card"></i>
+                            Payment Method
+                        </h3>
+
+                        <div class="payment-options">
+                            <label class="payment-option">
+                                <input type="radio" name="paymentMethod" value="mpesa" checked>
+                                <div class="payment-content">
+                                    <div class="payment-icon">
+                                        <i class="fas fa-mobile-alt"></i>
+                                    </div>
+                                    <div class="payment-label">M-Pesa</div>
+                                </div>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="paymentMethod" value="card">
+                                <div class="payment-content">
+                                    <div class="payment-icon">
+                                        <i class="fas fa-credit-card"></i>
+                                    </div>
+                                    <div class="payment-label">Card</div>
+                                </div>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="paymentMethod" value="bank">
+                                <div class="payment-content">
+                                    <div class="payment-icon">
+                                        <i class="fas fa-university"></i>
+                                    </div>
+                                    <div class="payment-label">Bank Transfer</div>
+                                </div>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="paymentMethod" value="paypal">
+                                <div class="payment-content">
+                                    <div class="payment-icon">
+                                        <i class="fab fa-paypal"></i>
+                                    </div>
+                                    <div class="payment-label">PayPal</div>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div style="background: #fff8f3; padding: 15px; border-radius: 10px; margin-top: 25px;">
+                            <p style="margin: 0; color: #666; font-size: 0.95rem;">
+                                <i class="fas fa-info-circle" style="color: #e97730;"></i>
+                                You can pay a 30% deposit now and the balance 30 days before departure.
+                            </p>
+                        </div>
+
+                        <div class="form-buttons">
+                            <button type="button" class="btn-secondary" onclick="prevStep()">Back</button>
+                            <button type="button" class="btn-primary" onclick="nextStep()">Review Booking</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Confirm -->
+                    <div class="form-step" data-step="4">
+                        <h3 class="form-section-title">
+                            <i class="fas fa-check-circle"></i>
+                            Review & Confirm
+                        </h3>
+
+                        <div id="reviewSection">
+                            <!-- Review content will be filled by JavaScript -->
+                        </div>
+
+                        <div style="margin: 25px 0;">
+                            <label style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer;">
+                                <input type="checkbox" name="termsAccepted" required style="margin-top: 4px;">
+                                <span style="color: #666; font-size: 0.95rem;">
+                                    I agree to the <a href="terms.html" target="_blank" style="color: #e97730;">Terms & Conditions</a> 
+                                    and <a href="cancellation-policy.html" target="_blank" style="color: #e97730;">Cancellation Policy</a>
+                                </span>
+                            </label>
+                        </div>
+
+                        <div class="form-buttons">
+                            <button type="button" class="btn-secondary" onclick="prevStep()">Back</button>
+                            <button type="submit" class="btn-primary">
+                                <i class="fas fa-lock"></i> Confirm Booking
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Success Message (Hidden initially) -->
+                <div class="success-message" id="successMessage">
+                    <div class="success-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h2>Booking Confirmed!</h2>
+                    <p>Thank you for booking with Deluxe Tours</p>
+                    <div class="booking-reference">
+                        <p style="margin-bottom: 10px; color: #666;">Your Booking Reference:</p>
+                        <strong id="bookingRefDisplay"></strong>
+                    </div>
+                    <p style="color: #666; margin-bottom: 25px;">
+                        We've sent a confirmation email to <strong id="confirmEmail"></strong>
+                    </p>
+                    <button class="btn-primary" onclick="window.location.href='tours.html'">
+                        Browse More Tours
+                    </button>
+                </div>
+            </div>
+
+            <!-- Booking Summary -->
+            <div class="booking-summary">
+                <div class="tour-info" id="tourInfoSummary">
+                    <!-- Tour info will be loaded by JavaScript -->
+                </div>
+
+                <div class="price-breakdown">
+                    <h4 style="margin-bottom: 15px; color: #333;">Price Breakdown</h4>
+                    <div class="price-item">
+                        <span>Base Price × <span id="totalTravelersDisplay">1</span></span>
+                        <span class="price-amount" id="basePriceDisplay">$0</span>
+                    </div>
+                    <div class="price-item">
+                        <span>Tax (16%)</span>
+                        <span class="price-amount" id="taxDisplay">$0</span>
+                    </div>
+                    <div class="price-item total">
+                        <span>Total</span>
+                        <span class="price-amount" id="totalPriceDisplay">$0</span>
+                    </div>
+                </div>
+
+                <div class="security-info">
+                    <i class="fas fa-shield-alt" style="color: #4caf50; font-size: 1.5rem; margin-bottom: 10px;"></i>
+                    <p style="margin: 0;">Secure booking with SSL encryption</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../js/components.js"></script>
+    <script src="../js/booking.js"></script>
+</body>
+</html>

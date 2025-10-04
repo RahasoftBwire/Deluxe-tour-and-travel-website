@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancellation Policy - Deluxe Tours</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .policy-hero {
+            background: linear-gradient(135deg, #e97730 0%, #d66620 100%);
+            padding: 100px 20px 60px;
+            text-align: center;
+            color: white;
+        }
+
+        .policy-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .policy-hero p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        .policy-container {
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .policy-section {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .policy-section h2 {
+            color: #e97730;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .policy-section h3 {
+            color: #333;
+            font-size: 1.5rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .policy-section p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .policy-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .policy-section ul li {
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .policy-section ul li::before {
+            content: "\f00c";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: #e97730;
+        }
+
+        .refund-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background: white;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .refund-table thead {
+            background: #e97730;
+            color: white;
+        }
+
+        .refund-table th,
+        .refund-table td {
+            padding: 15px 20px;
+            text-align: left;
+        }
+
+        .refund-table tbody tr {
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .refund-table tbody tr:hover {
+            background: #f9f9f9;
+        }
+
+        .refund-table td:last-child {
+            font-weight: 600;
+            color: #e97730;
+        }
+
+        .info-box {
+            background: #fff8f3;
+            border-left: 4px solid #e97730;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 5px;
+        }
+
+        .info-box h4 {
+            color: #e97730;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-box p {
+            color: #666;
+            margin: 0;
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 5px;
+        }
+
+        .warning-box h4 {
+            color: #856404;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-cta {
+            background: linear-gradient(135deg, #e97730 0%, #d66620 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .contact-cta h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-cta p {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            opacity: 0.95;
+        }
+
+        .contact-cta .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            padding: 15px 35px;
+            border: 2px solid white;
+            background: white;
+            color: #e97730;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cta-btn:hover {
+            background: transparent;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .policy-hero h1 {
+                font-size: 2rem;
+            }
+
+            .policy-section {
+                padding: 25px;
+            }
+
+            .refund-table {
+                font-size: 0.9rem;
+            }
+
+            .refund-table th,
+            .refund-table td {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <!-- Hero Section -->
+    <section class="policy-hero">
+        <h1><i class="fas fa-file-contract"></i> Cancellation & Refund Policy</h1>
+        <p>Clear and transparent policies to protect your booking</p>
+    </section>
+
+    <!-- Policy Container -->
+    <div class="policy-container">
+        
+        <!-- Overview Section -->
+        <div class="policy-section">
+            <h2><i class="fas fa-info-circle"></i> Policy Overview</h2>
+            <p>At Deluxe Tours, we understand that plans can change. Our cancellation policy is designed to be fair and transparent, balancing the needs of our customers with the operational requirements of organizing world-class tours.</p>
+            <p>This policy applies to all tour packages, accommodations, and services booked through Deluxe Tours. Please read this policy carefully before making your booking.</p>
+            <p><strong>Last Updated:</strong> October 4, 2025</p>
+        </div>
+
+        <!-- Cancellation Timeline -->
+        <div class="policy-section">
+            <h2><i class="fas fa-calendar-times"></i> Cancellation Timeline & Refunds</h2>
+            <p>The refund amount depends on when you cancel your booking relative to the departure date:</p>
+
+            <table class="refund-table">
+                <thead>
+                    <tr>
+                        <th>Cancellation Period</th>
+                        <th>Refund Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>More than 60 days before departure</td>
+                        <td>90% refund (10% admin fee)</td>
+                    </tr>
+                    <tr>
+                        <td>45-60 days before departure</td>
+                        <td>75% refund</td>
+                    </tr>
+                    <tr>
+                        <td>30-44 days before departure</td>
+                        <td>50% refund</td>
+                    </tr>
+                    <tr>
+                        <td>15-29 days before departure</td>
+                        <td>25% refund</td>
+                    </tr>
+                    <tr>
+                        <td>Less than 15 days before departure</td>
+                        <td>No refund</td>
+                    </tr>
+                    <tr>
+                        <td>No-show or cancellation after departure</td>
+                        <td>No refund</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="info-box">
+                <h4><i class="fas fa-lightbulb"></i> Important Note</h4>
+                <p>Cancellation must be requested in writing via email to info@deluxetour.co.ke or through your account dashboard. The cancellation date is determined by when we receive your written notice, not when you decide to cancel.</p>
+            </div>
+        </div>
+
+        <!-- Booking Modifications -->
+        <div class="policy-section">
+            <h2><i class="fas fa-edit"></i> Booking Modifications</h2>
+            <p>We understand that sometimes you need to adjust your plans rather than cancel entirely. Here's our policy for booking changes:</p>
+            
+            <h3>Date Changes</h3>
+            <ul>
+                <li>Changes requested more than 30 days before departure: $50 modification fee</li>
+                <li>Changes requested 15-30 days before departure: $150 modification fee</li>
+                <li>Changes requested less than 15 days before departure: Not permitted</li>
+                <li>Subject to availability on new dates</li>
+            </ul>
+
+            <h3>Tour Package Changes</h3>
+            <ul>
+                <li>Upgrades: Price difference + $50 processing fee</li>
+                <li>Downgrades: 50% of price difference refunded</li>
+                <li>Changes must be requested at least 30 days before departure</li>
+            </ul>
+
+            <h3>Traveler Name Changes</h3>
+            <ul>
+                <li>Minor spelling corrections: Free within 48 hours of booking</li>
+                <li>Complete name change: $100 fee + any airline penalties</li>
+                <li>Name changes must be completed at least 14 days before departure</li>
+            </ul>
+
+            <div class="warning-box">
+                <h4><i class="fas fa-exclamation-triangle"></i> Important</h4>
+                <p>Some tour packages and services have special cancellation terms due to third-party suppliers. These will be clearly communicated at the time of booking and may be more restrictive than our standard policy.</p>
+            </div>
+        </div>
+
+        <!-- Special Circumstances -->
+        <div class="policy-section">
+            <h2><i class="fas fa-shield-alt"></i> Special Circumstances</h2>
+            
+            <h3>Medical Emergencies</h3>
+            <p>In case of serious illness or medical emergency preventing travel, we may offer:</p>
+            <ul>
+                <li>Full refund minus non-recoverable costs (with valid medical certificate)</li>
+                <li>Credit for future travel valid for 12 months</li>
+                <li>Transfer to another person at no additional cost</li>
+            </ul>
+
+            <h3>Force Majeure</h3>
+            <p>In cases of natural disasters, war, pandemic, government travel restrictions, or other events beyond our control:</p>
+            <ul>
+                <li>We will work with you to reschedule your tour</li>
+                <li>If rescheduling is not possible, we will refund all recoverable costs</li>
+                <li>We are not liable for expenses incurred outside of the tour package</li>
+            </ul>
+
+            <h3>Tour Cancellation by Deluxe Tours</h3>
+            <ul>
+                <li>Full refund of all payments made</li>
+                <li>OR credit towards an alternative tour with 10% bonus value</li>
+                <li>We are not responsible for other expenses (flights booked separately, visa fees, etc.)</li>
+            </ul>
+        </div>
+
+        <!-- Refund Process -->
+        <div class="policy-section">
+            <h2><i class="fas fa-money-check-alt"></i> Refund Processing</h2>
+            
+            <h3>How to Request a Cancellation</h3>
+            <ol style="padding-left: 20px; color: #666; line-height: 1.8;">
+                <li>Send an email to info@deluxetour.co.ke with your booking reference number</li>
+                <li>Include the reason for cancellation and any supporting documents</li>
+                <li>You will receive confirmation within 24-48 hours</li>
+                <li>Our team will process your request and calculate the refund amount</li>
+            </ol>
+
+            <h3>Refund Timeline</h3>
+            <ul>
+                <li>Credit/Debit Card: 7-14 business days after approval</li>
+                <li>Bank Transfer: 5-10 business days after approval</li>
+                <li>Mobile Money: 3-5 business days after approval</li>
+            </ul>
+
+            <div class="info-box">
+                <h4><i class="fas fa-clock"></i> Processing Time</h4>
+                <p>Please allow 3-5 business days for us to review and approve your cancellation request. During peak seasons, this may take up to 7 business days.</p>
+            </div>
+        </div>
+
+        <!-- Travel Insurance -->
+        <div class="policy-section">
+            <h2><i class="fas fa-umbrella"></i> Travel Insurance Recommendation</h2>
+            <p>We strongly recommend purchasing comprehensive travel insurance to protect your investment. Travel insurance can cover:</p>
+            <ul>
+                <li>Trip cancellation for any reason</li>
+                <li>Medical emergencies and evacuation</li>
+                <li>Lost or delayed baggage</li>
+                <li>Travel delays and interruptions</li>
+                <li>24/7 emergency assistance</li>
+            </ul>
+            <p>Travel insurance is not included in our tour packages but can be added during booking or purchased independently.</p>
+        </div>
+
+        <!-- Non-Refundable Items -->
+        <div class="policy-section">
+            <h2><i class="fas fa-ban"></i> Non-Refundable Items</h2>
+            <p>The following items are generally non-refundable once booked:</p>
+            <ul>
+                <li>Visa application fees</li>
+                <li>Travel insurance premiums</li>
+                <li>Third-party services booked on your behalf (certain activities, special events)</li>
+                <li>Custom tour arrangements and private services (depending on supplier terms)</li>
+                <li>Promotional or discounted packages (may have different terms)</li>
+            </ul>
+        </div>
+
+        <!-- Contact CTA -->
+        <div class="contact-cta">
+            <h3>Questions About Our Policy?</h3>
+            <p>Our team is here to help clarify any concerns about cancellations or refunds</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="cta-btn">
+                    <i class="fas fa-envelope"></i> Contact Us
+                </a>
+                <a href="tel:+254725442618" class="cta-btn">
+                    <i class="fas fa-phone"></i> Call +254 725 442 618
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../js/components.js"></script>
+</body>
+</html>

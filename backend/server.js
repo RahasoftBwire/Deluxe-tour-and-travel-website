@@ -11,7 +11,7 @@ const app = express();
 // Import routes
 const authRoutes = require('./src/routes/authRoutes');
 const tourRoutes = require('./src/routes/tourRoutes');
-const bookingRoutes = require('./src/routes/bookingRoutes');
+const bookingRoutes = require('./src/routes/bookingRoutesNew'); // Updated to new booking routes
 const contactRoutes = require('./src/routes/contactRoutes');
 const reviewRoutes = require('./src/routes/reviewRoutes');
 // const bookingRoutes = require('./src/routes/bookingRoutes');

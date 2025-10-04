@@ -224,8 +224,23 @@
     <!-- Cookie Consent -->
     <div id="cookie-consent"></div>
 
+    <!-- Chatbot Widget -->
+    <div id="chatbot-container"></div>
+
     <script src="js/components.js"></script>
     <script src="js/main.js"></script>
     <script src="js/cookie-consent.js"></script>
+    <script>
+        // Load chatbot
+        fetch('includes/chatbot.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('chatbot-container').innerHTML = html;
+                const script = document.createElement('script');
+                script.src = 'js/chatbot.js';
+                document.body.appendChild(script);
+            })
+            .catch(error => console.log('Chatbot loading error:', error));
+    </script>
 </body>
 </html>

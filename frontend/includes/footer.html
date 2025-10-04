@@ -6,31 +6,31 @@
                 <h3><i class="fas fa-plane"></i> Deluxe Tour & Travel</h3>
                 <p>Your trusted partner for unforgettable travel experiences. Explore the world with comfort and style.</p>
                 <div class="social-links">
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://facebook.com/deluxetour" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="https://twitter.com/deluxetour" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com/deluxetour" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://youtube.com/@deluxetour" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://linkedin.com/company/deluxetour" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
             <div class="footer-col">
                 <h4>Quick Links</h4>
                 <ul>
-                    <li><a href="/pages/tours.html">Browse Tours</a></li>
-                    <li><a href="/pages/about.html">About Us</a></li>
-                    <li><a href="/pages/contact.html">Contact</a></li>
-                    <li><a href="/pages/faq.html">FAQ</a></li>
-                    <li><a href="/pages/destinations.html">Destinations</a></li>
+                    <li><a href="../pages/tours.html">Browse Tours</a></li>
+                    <li><a href="../pages/destinations.html">Destinations</a></li>
+                    <li><a href="../pages/about.html">About Us</a></li>
+                    <li><a href="../pages/contact.html">Contact</a></li>
+                    <li><a href="../pages/login.html">Login / Register</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Support</h4>
                 <ul>
-                    <li><a href="/pages/terms.html">Terms & Conditions</a></li>
-                    <li><a href="/pages/privacy.html">Privacy Policy</a></li>
-                    <li><a href="/pages/cancellation.html">Cancellation Policy</a></li>
-                    <li><a href="/pages/help.html">Help Center</a></li>
-                    <li><a href="/pages/booking-guide.html">Booking Guide</a></li>
+                    <li><a href="../pages/terms.html">Terms & Conditions</a></li>
+                    <li><a href="../pages/cancellation-policy.html">Cancellation Policy</a></li>
+                    <li><a href="../pages/contact.html">Help & Support</a></li>
+                    <li><a href="../pages/tours.html">Tour Packages</a></li>
+                    <li><a href="tel:+254725442618">Call Us: +254 725 442 618</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -38,19 +38,19 @@
                 <ul class="contact-info">
                     <li>
                         <i class="fas fa-map-marker-alt"></i> 
-                        <span>Moi Avenue, Nairobi, Kenya</span>
+                        <a href="https://maps.google.com/?q=Moi+Avenue,+Nairobi,+Kenya" target="_blank" rel="noopener noreferrer">Moi Avenue, Nairobi, Kenya</a>
                     </li>
                     <li>
                         <i class="fas fa-phone"></i> 
-                        <span>+254 700 000 000</span>
+                        <a href="tel:+254725442618">+254 725 442 618</a>
                     </li>
                     <li>
                         <i class="fas fa-envelope"></i> 
-                        <span>info@deluxetour.co.ke</span>
+                        <a href="mailto:info@deluxetour.co.ke">info@deluxetour.co.ke</a>
                     </li>
                     <li>
                         <i class="fas fa-clock"></i> 
-                        <span>Mon-Fri: 9AM - 6PM</span>
+                        <span>Sat-Thu: 9AM - 6PM (Fri Closed)</span>
                     </li>
                 </ul>
             </div>
@@ -62,3 +62,18 @@
         </div>
     </div>
 </footer>
+
+<!-- Chatbot Widget -->
+<script>
+    // Load chatbot HTML
+    fetch('../includes/chatbot.html')
+        .then(response => response.text())
+        .then(html => {
+            document.body.insertAdjacentHTML('beforeend', html);
+            // Load chatbot JavaScript
+            const script = document.createElement('script');
+            script.src = '../js/chatbot.js';
+            document.body.appendChild(script);
+        })
+        .catch(error => console.log('Chatbot loading error:', error));
+</script>

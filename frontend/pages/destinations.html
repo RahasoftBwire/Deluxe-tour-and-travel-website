@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destinations - Deluxe Tours</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .destinations-hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../images/hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .destinations-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .destinations-hero p {
+            font-size: 1.3rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .destinations-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .filter-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+
+        .filter-section h3 {
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 1.5rem;
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 12px 25px;
+            border: 2px solid #e97730;
+            background: white;
+            color: #e97730;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #e97730;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(233, 119, 48, 0.3);
+        }
+
+        .destinations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .destination-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .destination-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .destination-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            position: relative;
+        }
+
+        .destination-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #e97730;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .destination-content {
+            padding: 25px;
+        }
+
+        .destination-title {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .destination-location {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .destination-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .destination-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #e97730;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .destination-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price-tag {
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .price-tag span {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #e97730;
+        }
+
+        .explore-btn {
+            background: #e97730;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .explore-btn:hover {
+            background: #d66620;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .destinations-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .destinations-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-buttons {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <!-- Hero Section -->
+    <section class="destinations-hero">
+        <div>
+            <h1>Explore Amazing Destinations</h1>
+            <p>Discover breathtaking locations around the world and start your next adventure</p>
+        </div>
+    </section>
+
+    <!-- Destinations Container -->
+    <div class="destinations-container">
+        <!-- Filter Section -->
+        <div class="filter-section">
+            <h3><i class="fas fa-filter"></i> Filter by Region</h3>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All Destinations</button>
+                <button class="filter-btn" data-filter="africa">Africa</button>
+                <button class="filter-btn" data-filter="asia">Asia</button>
+                <button class="filter-btn" data-filter="europe">Europe</button>
+                <button class="filter-btn" data-filter="middle-east">Middle East</button>
+                <button class="filter-btn" data-filter="islands">Islands & Beaches</button>
+            </div>
+        </div>
+
+        <!-- Destinations Grid -->
+        <div class="destinations-grid" id="destinationsGrid">
+            <!-- Destinations will be loaded here by JavaScript -->
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../js/components.js"></script>
+    <script>
+        const destinations = [
+            {
+                id: 'masai-mara',
+                name: 'Masai Mara',
+                country: 'Kenya',
+                region: 'africa',
+                image: 'https://images.pexels.com/photos/3061217/pexels-photo-3061217.jpeg?auto=compress&cs=tinysrgb&w=800',
+                description: 'Experience the greatest wildlife spectacle on earth with the annual wildebeest migration.',
+                tours: 8,
+                fromPrice: 1800,
+                duration: '5-7 days',
+                featured: true
+            },
+            {
+                id: 'maldives',
+                name: 'Maldives',
+                country: 'Maldives',
+                region: 'islands',
+                image: 'https://images.pexels.com/photos/3250613/pexels-photo-3250613.jpeg?auto=compress&cs=tinysrgb&w=800',
+                description: 'Paradise islands with crystal-clear waters, luxury resorts, and world-class diving.',
+                tours: 12,
+                fromPrice: 1200,
+                duration: '6-8 days',
+                featured: true
+            },
+            {
+                id: 'dubai',
+                name: 'Dubai',
+                country: 'UAE',
+                region: 'middle-east',
+                image: 'https://images.pexels.com/photos/1470502/pexels-photo-1470502.jpeg?auto=compress&cs=tinysrgb&w=800',
+                description: 'Modern luxury meets Arabian heritage in this spectacular city of superlatives.',
+                tours: 15,
+                fromPrice: 1500,
+                duration: '4-6 days',
+                featured: true
+            },
+            {
+                id: 'zanzibar',
+                name: 'Zanzibar',
+                country: 'Tanzania',
+                region: 'africa',
+                image: 'https://images.pexels.com/photos/3155481/pexels-photo-3155481.jpeg?auto=compress&cs=tinysrgb&w=800',
+                description: 'Pristine beaches, spice plantations, and rich Swahili culture await you.',
+                tours: 10,
+                fromPrice: 1400,
+                duration: '5-7 days',
+                featured: false
+            },
+            {
+                id: 'bali',
+                name: 'Bali',
+                country: 'Indonesia',
+                region: 'asia',
+                image: 'https://images.pexels.com/photos/2166559/pexels-photo-2166559.jpeg?auto=compress&cs=tinysrgb&w=800',
+                description: 'Tropical paradise with ancient temples, rice terraces, and vibrant culture.',
+                tours: 14,
+                fromPrice: 1100,
+                duration: '6-8 days',
+                featured: false
+            },
+            {
+                id: 'santorini',
+                name: 'Santorini',
+                country: 'Greece',
+                region: 'europe',
+                image: 'https://images.pexels.com/photos/1010657/pexels-photo-1010657.jpeg?auto=compress&cs=tinysrgb&w=800',
+                description: 'Stunning white-washed villages perched on volcanic cliffs overlooking the Aegean Sea.',
+                tours: 9,
+                fromPrice: 1600,
+                duration: '4-6 days',
+                featured: false
+            },
+            {
+                id: 'seychelles',
+                name: 'Seychelles',
+                country: 'Seychelles',
+                region: 'islands',
+                image: 'https://images.pexels.com/photos/3155666/pexels-photo-3155666.jpeg?auto=compress&cs=tinysrgb&w=800',
+                description: 'Untouched tropical paradise with unique granite rock formations and rare wildlife.',
+                tours: 7,
+                fromPrice: 1900,
+                duration: '6-8 days',
+                featured: false
+            },
+            {
+                id: 'istanbul',
+                name: 'Istanbul',
+                country: 'Turkey',
+                region: 'europe',
+                image: 'https://images.pexels.com/photos/3214991/pexels-photo-3214991.jpeg?auto=compress&cs=tinysrgb&w=800',
+                description: 'Where East meets West - a city of magnificent history, culture, and cuisine.',
+                tours: 11,
+                fromPrice: 1300,
+                duration: '4-6 days',
+                featured: false
+            },
+            {
+                id: 'mauritius',
+                name: 'Mauritius',
+                country: 'Mauritius',
+                region: 'islands',
+                image: 'https://images.pexels.com/photos/1320686/pexels-photo-1320686.jpeg?auto=compress&cs=tinysrgb&w=800',
+                description: 'Luxury island getaway with pristine beaches, lush mountains, and multicultural charm.',
+                tours: 8,
+                fromPrice: 1700,
+                duration: '6-8 days',
+                featured: false
+            },
+            {
+                id: 'cairo',
+                name: 'Cairo',
+                country: 'Egypt',
+                region: 'africa',
+                image: 'https://images.pexels.com/photos/3290075/pexels-photo-3290075.jpeg?auto=compress&cs=tinysrgb&w=800',
+                description: 'Home to the ancient pyramids and mysteries of the pharaohs.',
+                tours: 13,
+                fromPrice: 1250,
+                duration: '5-7 days',
+                featured: false
+            },
+            {
+                id: 'phuket',
+                name: 'Phuket',
+                country: 'Thailand',
+                region: 'asia',
+                image: 'https://images.pexels.com/photos/1287460/pexels-photo-1287460.jpeg?auto=compress&cs=tinysrgb&w=800',
+                description: 'Thailand\'s largest island with stunning beaches, nightlife, and cultural attractions.',
+                tours: 16,
+                fromPrice: 950,
+                duration: '5-7 days',
+                featured: false
+            },
+            {
+                id: 'marrakech',
+                name: 'Marrakech',
+                country: 'Morocco',
+                region: 'africa',
+                image: 'https://images.pexels.com/photos/2373201/pexels-photo-2373201.jpeg?auto=compress&cs=tinysrgb&w=800',
+                description: 'Enchanting city of souks, palaces, and gardens in the heart of Morocco.',
+                tours: 10,
+                fromPrice: 1100,
+                duration: '4-6 days',
+                featured: false
+            }
+        ];
+
+        function renderDestinations(filter = 'all') {
+            const grid = document.getElementById('destinationsGrid');
+            const filtered = filter === 'all' 
+                ? destinations 
+                : destinations.filter(dest => dest.region === filter);
+
+            grid.innerHTML = filtered.map(dest => `
+                <div class="destination-card" onclick="viewDestination('${dest.id}')">
+                    <div style="position: relative;">
+                        <img src="${dest.image}" alt="${dest.name}" class="destination-image">
+                        ${dest.featured ? '<div class="destination-badge">Featured</div>' : ''}
+                    </div>
+                    <div class="destination-content">
+                        <h2 class="destination-title">${dest.name}</h2>
+                        <div class="destination-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>${dest.country}</span>
+                        </div>
+                        <p class="destination-description">${dest.description}</p>
+                        <div class="destination-stats">
+                            <div class="stat-item">
+                                <span class="stat-value">${dest.tours}</span>
+                                <span class="stat-label">Tours</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">${dest.duration}</span>
+                                <span class="stat-label">Duration</span>
+                            </div>
+                        </div>
+                        <div class="destination-footer">
+                            <div class="price-tag">
+                                From <span>$${dest.fromPrice}</span>
+                            </div>
+                            <button class="explore-btn">
+                                <i class="fas fa-compass"></i> Explore
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function viewDestination(id) {
+            // Redirect to tours page filtered by destination
+            window.location.href = `tours.html?destination=${id}`;
+        }
+
+        // Filter buttons
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                renderDestinations(this.dataset.filter);
+            });
+        });
+
+        // Initial render
+        renderDestinations();
+    </script>
+</body>
+</html>
