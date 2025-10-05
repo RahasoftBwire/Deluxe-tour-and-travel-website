@@ -14,8 +14,6 @@ const tourRoutes = require('./src/routes/tourRoutes');
 const bookingRoutes = require('./src/routes/bookingRoutesNew'); // Updated to new booking routes
 const contactRoutes = require('./src/routes/contactRoutes');
 const reviewRoutes = require('./src/routes/reviewRoutes');
-// const bookingRoutes = require('./src/routes/bookingRoutes');
-// const contactRoutes = require('./src/routes/contactRoutes');
 
 // Middleware
 app.use(helmet()); // Security headers

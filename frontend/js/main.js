@@ -18,8 +18,6 @@ window.addEventListener('scroll', () => {
 document.addEventListener('DOMContentLoaded', () => {
     const heroVideo = document.getElementById('heroVideo');
     if (heroVideo) {
-        console.log('Hero video element found');
-        
         // Set video properties
         heroVideo.muted = true;
         heroVideo.loop = true;
@@ -30,33 +28,18 @@ document.addEventListener('DOMContentLoaded', () => {
         heroVideo.load();
         
         setTimeout(() => {
-            heroVideo.play().then(() => {
-                console.log('Video is playing!');
-            }).catch(err => {
-                console.error('Video autoplay failed:', err);
+            heroVideo.play().catch(err => {
                 // Try again on any user interaction
                 document.body.addEventListener('click', () => {
-                    heroVideo.play().then(() => {
-                        console.log('Video playing after click');
-                    });
+                    heroVideo.play();
                 }, { once: true });
             });
         }, 100);
         
-        // Monitor video state
-        heroVideo.addEventListener('loadeddata', () => {
-            console.log('Video data loaded');
-        });
-        
-        heroVideo.addEventListener('playing', () => {
-            console.log('Video is actually playing now');
-        });
-        
+        // Handle video errors
         heroVideo.addEventListener('error', (e) => {
             console.error('Video error:', heroVideo.error);
         });
-    } else {
-        console.error('Hero video element not found');
     }
 });
 

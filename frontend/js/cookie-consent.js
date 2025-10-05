@@ -2,6 +2,9 @@
 (function() {
     'use strict';
 
+    // Debug mode - set to false in production
+    const DEBUG_MODE = false;
+
     // Cookie utility functions
     const CookieManager = {
         // Set a cookie with expiration
@@ -75,7 +78,7 @@
         hideCookieBanner();
         
         // Initialize analytics or tracking here if needed
-        console.log('✅ Cookies accepted - Analytics enabled');
+        if (DEBUG_MODE) console.log('✅ Cookies accepted - Analytics enabled');
         
         // Show success message
         showToast('Cookie preferences saved! Thank you.', 'success');
@@ -92,7 +95,7 @@
         hideCookieBanner();
         
         // Remove any tracking cookies
-        console.log('❌ Cookies declined - Limited functionality');
+        if (DEBUG_MODE) console.log('❌ Cookies declined - Limited functionality');
         
         // Show info message
         showToast('You have declined cookies. Some features may be limited.', 'info');
@@ -129,7 +132,7 @@
             showCookieBanner();
         } else {
             // Consent already given
-            console.log(`Cookie consent: ${consentStatus}`);
+            if (DEBUG_MODE) console.log(`Cookie consent: ${consentStatus}`);
         }
 
         // Add event listeners
