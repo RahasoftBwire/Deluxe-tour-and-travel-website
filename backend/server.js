@@ -14,6 +14,7 @@ const tourRoutes = require('./src/routes/tourRoutes');
 const bookingRoutes = require('./src/routes/bookingRoutesNew'); // Updated to new booking routes
 const contactRoutes = require('./src/routes/contactRoutes');
 const reviewRoutes = require('./src/routes/reviewRoutes');
+const paymentRoutes = require('./src/routes/paymentRoutes');
 
 // Middleware
 app.use(helmet()); // Security headers
@@ -55,6 +56,7 @@ app.use('/api/tours', tourRoutes);
 app.use('/api/bookings', bookingRoutes);
 app.use('/api/contact', contactRoutes);
 app.use('/api/reviews', reviewRoutes);
+app.use('/api/payments', paymentRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
